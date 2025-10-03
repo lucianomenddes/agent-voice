@@ -41,6 +41,7 @@ def response(
     logger.info("🎙️ Received audio input")
 
     logger.debug("🔄 Transcribing audio...")
+    
     transcript = groq_client.audio.transcriptions.create(
         file=("audio-file.mp3", audio_to_bytes(audio)),
         model="whisper-large-v3-turbo",
@@ -56,6 +57,7 @@ def response(
     logger.info(f'💬 Response: "{response_text}"')
 
     logger.debug("🔊 Generating speech...")
+    
     tts_response = groq_client.audio.speech.create(
         model="playai-tts",
         voice="Celeste-PlayAI",
