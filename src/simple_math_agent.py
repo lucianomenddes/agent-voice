@@ -24,7 +24,7 @@ model = ChatGroq(
 def sum_numbers(a: float, b: float) -> float:
     """Some dois números juntos."""
     result = a + b
-    logger.info(f"➕ Calculating sum: {a} + {b} = {result}")
+    logger.info(f" Calculating sum: {a} + {b} = {result}")
     return result
 
 

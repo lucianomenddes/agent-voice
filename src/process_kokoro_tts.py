@@ -13,9 +13,7 @@ tts_options = KokoroTTSOptions(
 )
 
 
-def process_kokoro_tts(
-    text: Any,
-) -> Generator[Tuple[int, np.ndarray], None, None]:
+def process_kokoro_tts(text: Any,) -> Generator[Tuple[int, np.ndarray], None, None]:
     """
     Processa texto em áudio usando Kokoro TTS (PT-BR).
 
