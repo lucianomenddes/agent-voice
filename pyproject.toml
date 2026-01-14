@@ -15,4 +15,7 @@ dependencies = [
     "python-dotenv>=1.1.1",
     "kokoro-onnx>=0.4.9",
     "langchain>=1.2.3",
+    "duckduckgo-search>=8.1.1",
+    "langchain-community>=0.4.1",
+    "pydantic>=2.12.3",
 ]
