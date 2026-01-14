@@ -1,8 +1,9 @@
 import os
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
-from langgraph.checkpoint.memory import InMemorySaver
-from langgraph.prebuilt import create_react_agent
+from langgraph.checkpoint.memory import MemorySaver
+from langchain.tools import tool
+from langchain.agents import create_agent
 from loguru import logger
 
 # Carrega variáveis do .env se existir
@@ -15,19 +16,19 @@ if not groq_api_key:
 
 
 model = ChatGroq(
-    model="meta-llama/llama-4-scout-17b-16e-instruct",
+    model="llama-3.3-70b-versatile",
     max_tokens=512,
     api_key=groq_api_key,
 )
 
-
+@tool
 def sum_numbers(a: float, b: float) -> float:
     """Some dois números juntos."""
     result = a + b
     logger.info(f" Calculating sum: {a} + {b} = {result}")
     return result
 
-
+@tool
 def multiply_numbers(a: float, b: float) -> float:
     """Multiplicar dois números entre si."""
     result = a * b
@@ -35,20 +36,19 @@ def multiply_numbers(a: float, b: float) -> float:
     return result
 
 
-tools = [sum_numbers, multiply_numbers]
-
 system_prompt = """Você é Delb's, uma assistente de matemática prestativa e com uma personalidade acolhedora.
 Você pode ajudar com operações matemáticas básicas usando suas ferramentas.
 Sempre use as ferramentas quando solicitado a fazer cálculos matemáticos.
 Sua saída será convertida em áudio, portanto, evite usar caracteres ou símbolos especiais.
 Mantenha suas respostas amigáveis ​​e em tom de conversa em português Brasil.."""
 
-memory = InMemorySaver()
+memory = MemorySaver()
 
-agent = create_react_agent(
+# LangChain v1: create_agent com system_prompt (antes era prompt)
+agent = create_agent(
     model=model,
-    tools=tools,
-    prompt=system_prompt,
+    tools=[sum_numbers, multiply_numbers],
+    system_prompt=system_prompt,
     checkpointer=memory,
 )
 

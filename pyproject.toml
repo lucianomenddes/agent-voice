@@ -14,4 +14,5 @@ dependencies = [
     "loguru>=0.7.3",
     "python-dotenv>=1.1.1",
     "kokoro-onnx>=0.4.9",
+    "langchain>=1.2.3",
 ]

@@ -58,12 +58,7 @@ def response(
 
     logger.debug("🔊 Generating speech...")
     
-    tts_response = groq_client.audio.speech.create(
-        model="playai-tts",
-        voice="Celeste-PlayAI",
-        response_format="wav",
-        input=response_text,
-    )
+    # Usando Kokoro TTS local (Groq playai-tts foi descontinuado)
     yield from process_kokoro_tts(response_text)
 
 
@@ -87,7 +82,7 @@ def create_stream() -> Stream:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="FastRTC Groq Voice Agent")
+    parser = argparse.ArgumentParser(description="Voice Agent")
     parser.add_argument(
         "--phone",
         action="store_true",
