@@ -13,7 +13,7 @@ from groq import Groq
 from loguru import logger
 
 from process_groq_tts import process_groq_tts
-from simple_math_agent import agent, agent_config
+from src.agent import agent, agent_config
 from process_kokoro_tts import process_kokoro_tts
 
 logger.remove()
