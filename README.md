@@ -1,8 +1,6 @@
 # 🤖 Agent Voice: Seu Assistente de Voz Local
 
-Bem-vindo ao **Agent Voice**, um projeto de assistente de voz que combina modelos de IA de ponta para oferecer uma experiência de conversação fluida e responsiva.  
-Este projeto utiliza o poder da **API da OpenAI (modelo GPT-3.5 Turbo)** e os modelos de fala locais **Kokoro** e **Moonshine** para processar comandos de voz e gerar respostas de forma ágil e eficiente.
-
+Agente de IA Conversacional com Voz Este projeto demonstra a criação de um agente de IA conversacional em Python, capaz de raciocinar e utilizar ferramentas para executar tarefas 
 ---
 
 ## 🌟 Recursos Principais
